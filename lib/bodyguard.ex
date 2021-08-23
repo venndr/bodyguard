@@ -16,7 +16,7 @@ defmodule Bodyguard do
   to the `c:Bodyguard.Policy.authorize/3` callback. Otherwise, `params` is not
   changed.
   """
-  @spec permit(policy :: module, action :: atom, user :: any, params :: any) ::
+  @spec permit(policy :: module, action :: any, user :: any, params :: any) ::
           :ok | {:error, any} | no_return()
   def permit(policy, action, user, params \\ []) do
     params = try_to_mapify(params)
