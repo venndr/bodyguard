@@ -49,7 +49,7 @@ defmodule Bodyguard.Policy do
   It bears no intrinsic relationship to a controller action, and instead should
   share a name with a particular function on the context.
   """
-  @callback authorize(action :: atom, user :: any, params :: %{atom => any} | any) :: auth_result
+  @callback authorize(action :: any, user :: any, params :: %{atom => any} | any) :: auth_result
 
   @doc false
   defmacro __using__(opts) do
