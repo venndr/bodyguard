@@ -42,7 +42,7 @@ defmodule Bodyguard do
   * `error_status` – the HTTP status code to raise with the error (default 403)
   """
 
-  @spec permit!(policy :: module, action :: atom, user :: any, params :: any, opts :: opts) ::
+  @spec permit!(policy :: module, action :: any, user :: any, params :: any, opts :: opts) ::
           :ok | no_return()
   def permit!(policy, action, user, params \\ [], opts \\ []) do
     params = try_to_mapify(params)
@@ -68,7 +68,7 @@ defmodule Bodyguard do
   @doc """
   The same as `permit/4`, but returns a boolean.
   """
-  @spec permit?(policy :: module, action :: atom, user :: any, params :: any) :: boolean
+  @spec permit?(policy :: module, action :: any, user :: any, params :: any) :: boolean
   def permit?(policy, action, user, params \\ []) do
     case permit(policy, action, user, params) do
       :ok -> true
